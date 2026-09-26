@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PocketSprout is a playful, simple budget tracker for saving, spending, and staying on top of plans." />
+    <title>PocketSprout — Make money feel easy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"><span>✦</span></div>
+          <div>
+            <span class="brand-name">PocketSprout</span>
+            <span class="brand-tagline">money, made friendly</span>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a class="nav-link active" href="#dashboard" data-section="dashboard"><span class="nav-icon">⌂</span> Dashboard</a>
+          <a class="nav-link" href="#goals" data-section="goals"><span class="nav-icon">◎</span> My goals <span class="nav-count" id="goalsNavCount">0</span></a>
+          <a class="nav-link" href="#depository" data-section="depository"><span class="nav-icon">▣</span> Depositary</a>
+          <a class="nav-link" href="#spending" data-section="spending"><span class="nav-icon">↘</span> Spending tracker <span class="nav-count" id="spendingCount">0</span></a>
+          <a class="nav-link" href="#debts" data-section="debts"><span class="nav-icon">!</span> Owed &amp; debts <span class="nav-count warm" id="debtsNavCount">0</span></a>
+          <a class="nav-link" href="#plans" data-section="plans"><span class="nav-icon">◷</span> Plans &amp; dues <span class="nav-count warm" id="plansNavCount">0</span></a>
+        </nav>
+
+        <div class="sidebar-tip">
+          <div class="tip-stars" aria-hidden="true">✦ ✧ ✦</div>
+          <strong>One tiny win</strong>
+          <p>Moving even $5 toward a goal is progress worth celebrating.</p>
+          <button class="text-button" id="tipAction">Got it <span aria-hidden="true">→</span></button>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button class="nav-link plain-button" id="helpButton"><span class="nav-icon">?</span> How it works</button>
+          <div class="profile-mini">
+            <div class="avatar avatar-lilac" aria-hidden="true">♡</div>
+            <div><strong>Your wallet</strong><span>Personal space</span></div>
+            <button class="icon-button" aria-label="Open profile menu">•••</button>
+          </div>
+        </div>
+      </aside>
+
+      <main id="main-content" class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand"><div class="brand-mark" aria-hidden="true"><span>✦</span></div><span>PocketSprout</span></div>
+          <div class="topbar-date">Saturday, September 19, 2026</div>
+          <div class="topbar-actions">
+            <button class="icon-button notification-button" aria-label="Notifications"><span aria-hidden="true">♧</span><i></i></button>
+            <div class="avatar avatar-peach" aria-label="Your profile">♡</div>
+          </div>
+        </header>
+
+        <div class="page-wrap">
+          <section id="dashboard" class="page-section active-section" aria-labelledby="welcome-title">
+            <div class="welcome-row">
+              <div>
+                <p class="eyebrow">YOUR MONEY, YOUR MOMENT <span aria-hidden="true">✦</span></p>
+                <h1 id="welcome-title">Ready to grow your money?</h1>
+                <p class="subhead">Start with one tiny step — no spreadsheets required.</p>
+              </div>
+              <button class="button button-dark" id="quickAddButton"><span aria-hidden="true">＋</span> Quick add</button>
+            </div>
+
+            <article class="hero-card">
+              <div class="hero-copy">
+                <span class="hero-pill">✦ YOUR POCKET CHECK-IN</span>
+                <h2>Small steps.<br /><em>Big dreams.</em></h2>
+                <p>Your money story starts here. Add a goal or make your first deposit when you’re ready.</p>
+                <div class="hero-actions"><button class="button button-light" data-scroll="goals">Create a goal <span aria-hidden="true">→</span></button><span class="streak"><span aria-hidden="true">✦</span> Your fresh start</span></div>
+              </div>
+              <div class="hero-visual jar-hero-visual" aria-label="Savings jar visualization">
+                <div class="sun"></div>
+                <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+                <div class="jar-shadow"></div>
+                <div class="coin-jar">
+                  <div class="jar-lid"></div>
+                  <div class="jar-body">
+                    <div class="jar-fill" id="jarFill"></div>
+                    <div class="jar-coins" aria-hidden="true"><span class="jar-coin coin-1">¢</span><span class="jar-coin coin-2">$</span><span class="jar-coin coin-3">¢</span><span class="jar-coin coin-4">$</span><span class="jar-coin coin-5">¢</span><span class="jar-coin coin-6">$</span><span class="jar-coin coin-7">¢</span><span class="jar-coin coin-8">$</span><span class="jar-coin coin-9">¢</span><span class="jar-coin coin-10">$</span><span class="jar-coin coin-11">¢</span><span class="jar-coin coin-12">$</span></div>
+                    <div class="jar-label"><span>MY SAVINGS</span><strong id="jarPercent">0%</strong></div>
+                  </div>
+                </div>
+                <span class="jar-spark jar-spark-one">✦</span><span class="jar-spark jar-spark-two">✧</span>
+              </div>
+            </article>
+
+            <section class="stats-grid" aria-label="Money summary">
+              <article class="stat-card stat-primary"><div class="stat-icon">◈</div><div><span class="stat-label">Total saved</span><strong>$0.00</strong><small>Ready when you are</small></div><span class="card-doodle">✦</span></article>
+              <article class="stat-card"><div class="stat-icon mint">↗</div><div><span class="stat-label">Added this month</span><strong>$0.00</strong><small>Make your first deposit</small></div><div class="mini-progress"><span style="width:0%"></span></div></article>
+              <article class="stat-card"><div class="stat-icon peach">◷</div><div><span class="stat-label">Coming up</span><strong id="upcomingAmount">$0.00</strong><small id="upcomingCaption">No plans yet</small></div><span class="due-dot" aria-hidden="true"></span></article>
+            </section>
+
+            <div class="content-grid">
+              <section id="goals" class="panel goals-panel" aria-labelledby="goals-title">
+                <div class="panel-heading"><div><p class="eyebrow">YOUR WHY</p><h2 id="goals-title">Savings goals <span class="heading-count">0</span></h2></div><button class="button button-outline" id="addGoalButton"><span aria-hidden="true">＋</span> Add goal</button></div>
+                <div class="goal-list" id="goalList"><div class="empty-state"><span class="empty-icon" aria-hidden="true">🌱</span><div><strong>Your first goal starts here</strong><p>Give something you care about a name and a target.</p></div></div></div>
+                <button class="view-all" data-scroll="goals">View all goals <span aria-hidden="true">→</span></button>
+              </section>
+
+              <section id="depository" class="panel depository-panel" aria-labelledby="depository-title">
+                <div class="panel-heading"><div><p class="eyebrow">WHERE IT LIVES</p><h2 id="depository-title">Depositary</h2></div><button class="icon-button more-button" aria-label="Depositary options">•••</button></div>
+                <div class="balance-box"><span>Available to assign</span><strong id="availableBalance">$0.00</strong><div class="balance-meta"><span class="balance-dot"></span>Ready for your first deposit <span aria-hidden="true">✦</span></div></div>
+                <form class="deposit-form" id="depositForm"><label for="depositAmount">Add to your stash</label><div class="input-with-prefix"><span>$</span><input id="depositAmount" type="number" min="0.01" step="0.01" placeholder="0.00" inputmode="decimal" required /><button class="button button-dark" type="submit">Deposit</button></div><div class="quick-amounts"><button type="button" data-amount="5">+$5</button><button type="button" data-amount="10">+$10</button><button type="button" data-amount="25">+$25</button><button type="button" data-amount="50">+$50</button></div></form>
+                <div class="recent-heading"><h3>Recent activity</h3><button class="small-link" id="clearActivity">Clear</button></div>
+                <div class="activity-list" id="activityList"><p class="empty-activity">No activity yet. Your deposits will show up here.</p></div>
+              </section>
+            </div>
+
+            <section id="weeklySummary" class="panel weekly-panel" aria-labelledby="weeklyTitle">
+              <div class="panel-heading"><div><p class="eyebrow">YOUR SAVING RHYTHM</p><h2 id="weeklyTitle">This week’s savings</h2><p class="panel-note">See when your money-growing habit is strongest.</p></div><span class="weekly-spark" aria-hidden="true">↗</span></div>
+              <div class="weekly-overview"><div><span>Saved this week</span><strong id="weeklyTotal">$0.00</strong></div><div class="weekly-best"><span>Most saved on</span><strong id="weeklyBestDay">—</strong><small id="weeklyBestAmount">Add a deposit to start the chart</small></div></div>
+              <div class="weekly-chart" id="weeklyChart" role="img" aria-label="Weekly savings chart"></div>
+            </section>
+
+            <section id="spending" class="panel spending-panel" aria-labelledby="spending-title">
+              <div class="panel-heading"><div><p class="eyebrow">PURCHASE LOG</p><h2 id="spending-title">Spending tracker <span class="heading-count" id="spendingHeadingCount">0</span></h2><p class="panel-note">Keep track of little spends without a big form.</p></div><span class="spending-spark" aria-hidden="true">↘</span></div>
+              <form class="expense-form" id="expenseForm">
+                <div class="expense-field expense-what"><label for="expenseName">What did you buy?</label><input id="expenseName" type="text" placeholder="e.g. Slushie" maxlength="40" required /></div>
+                <div class="expense-field"><label for="expenseAmount">How much?</label><div class="input-with-prefix"><span>$</span><input id="expenseAmount" type="number" min="0.01" step="0.01" placeholder="5.00" inputmode="decimal" required /></div></div>
+                <div class="expense-field"><label for="expenseDate">When?</label><input id="expenseDate" type="date" required /></div>
+                <button class="button button-dark expense-submit" type="submit">Log purchase <span aria-hidden="true">＋</span></button>
+              </form>
+              <div class="expense-list" id="expenseList"><p class="empty-activity">No purchases logged yet. Your quick entries will appear here.</p></div>
+            </section>
+
+            <section id="debts" class="panel debts-panel" aria-labelledby="debts-title">
+              <div class="panel-heading"><div><p class="eyebrow">KEEP YOUR PROMISES</p><h2 id="debts-title">Owed &amp; debts <span class="heading-count warm-count" id="debtsHeadingCount">0</span></h2><p class="panel-note">See what you owe, what’s late, and what’s already done.</p></div><button class="button button-outline" id="addDebtButton"><span aria-hidden="true">＋</span> Add something owed</button></div>
+              <div class="overdue-alert idle" id="overdueAlert"><img class="gojo-overdue-image" src="gojo-sticker.png" alt="Gojo keeping watch over your debts" /><div class="speech-bubble"><strong id="overdueHeadline">Gojo is keeping watch.</strong><p id="overdueCopy">No overdue debts — you’re all caught up.</p></div></div>
+              <div class="debt-summary"><div><span>Still to pay</span><strong id="debtTotal">$0.00</strong><small id="debtCaption">No open debts</small></div><span class="debt-summary-icon" aria-hidden="true">!</span></div>
+              <div class="debt-list" id="debtList"><p class="empty-activity">Nothing owed yet. Add a yearbook, borrowed money, or anything else here.</p></div>
+            </section>
+
+            <section id="plans" class="panel plans-panel" aria-labelledby="plans-title">
+              <div class="panel-heading"><div><p class="eyebrow">KEEP AN EYE OUT</p><h2 id="plans-title">Plans &amp; dues <span class="heading-count warm-count" id="plansHeadingCount">0</span></h2><p class="panel-note" id="planSummary">0 plans due this month · $0.00</p></div><button class="button button-outline" id="addPlanButton"><span aria-hidden="true">＋</span> Add plan</button></div>
+              <div class="plan-list" id="planList"><p class="empty-activity">No plans or dues yet. Add one when you’re ready to keep track.</p></div>
+            </section>
+
+            <section class="tiny-win-card"><div class="tiny-win-icon" aria-hidden="true">🌱</div><div><h2>Today’s tiny win</h2><p>You’ve looked at your money — that’s a money skill! Take a breath and celebrate the check-in.</p></div><button class="button button-light" id="celebrateButton">Celebrate <span aria-hidden="true">✦</span></button></section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="planModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="planModalTitle"><button class="modal-close plan-modal-close icon-button" aria-label="Close add plan dialog">×</button><div class="modal-spark" aria-hidden="true">◷</div><p class="eyebrow">UPCOMING MONEY</p><h2 id="planModalTitle">Add a plan or bill</h2><p class="modal-copy">Add only the few details you need to see what’s coming.</p><form id="planForm"><label for="planName">What is it?</label><input id="planName" type="text" placeholder="e.g. Roblox Premium" maxlength="40" required /><label for="planAmount">How much will it be?</label><div class="input-with-prefix"><span>$</span><input id="planAmount" type="number" min="0.01" step="0.01" placeholder="9.99" required /></div><label for="planDate">When does it renew?</label><input id="planDate" type="date" required /><button type="submit" class="button button-dark modal-submit">Add to my planner <span aria-hidden="true">→</span></button></form></section></div>
+
+    <div class="modal-backdrop" id="debtModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="debtModalTitle"><button class="modal-close debt-modal-close icon-button" aria-label="Close add debt dialog">×</button><div class="modal-spark debt-spark" aria-hidden="true">!</div><p class="eyebrow">MONEY TO RETURN</p><h2 id="debtModalTitle">Add something owed</h2><p class="modal-copy">Just name it, add the amount, and choose the due date.</p><form id="debtForm"><label for="debtName">Who or what is it for?</label><input id="debtName" type="text" placeholder="e.g. Yearbook or Robux — Mom" maxlength="40" required /><label for="debtAmount">How much do you owe?</label><div class="input-with-prefix"><span>$</span><input id="debtAmount" type="number" min="0.01" step="0.01" placeholder="15.00" required /></div><label for="debtDate">When is it due?</label><input id="debtDate" type="date" required /><button type="submit" class="button button-dark modal-submit">Add to my owed list <span aria-hidden="true">→</span></button></form></section></div>
+
+    <div class="modal-backdrop" id="goalModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close goal-modal-close icon-button" aria-label="Close add goal dialog">×</button><div class="modal-spark" aria-hidden="true">✦</div><p class="eyebrow">NEW POCKET DREAM</p><h2 id="modalTitle">What are you saving for?</h2><p class="modal-copy">Name your goal, set the finish line, and add a picture if you want one.</p><form id="goalForm"><label for="goalName">Goal name</label><input id="goalName" type="text" placeholder="e.g. Pokémon binder" maxlength="32" required /><label for="goalTarget">How much do you need?</label><div class="input-with-prefix"><span>$</span><input id="goalTarget" type="number" min="1" step="0.01" placeholder="60" required /></div><label for="goalImageUrl">Image URL <span class="label-hint">optional</span></label><input id="goalImageUrl" type="url" placeholder="https://…/your-picture.jpg" /><button type="submit" class="button button-dark modal-submit">Plant this goal <span aria-hidden="true">→</span></button></form></section></div>
+
+    <div class="modal-backdrop" id="goalDepositModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="goalDepositTitle"><button class="modal-close goal-deposit-modal-close icon-button" aria-label="Close add money dialog">×</button><div class="modal-spark" aria-hidden="true">＋</div><p class="eyebrow">A LITTLE CLOSER</p><h2 id="goalDepositTitle">Add money to your goal</h2><p class="modal-copy" id="goalDepositCopy">Every little bit counts toward the finish line.</p><form id="goalDepositForm"><label for="goalDepositAmount">How much are you adding?</label><div class="input-with-prefix"><span>$</span><input id="goalDepositAmount" type="number" min="0.01" step="0.01" placeholder="12" required /></div><button type="submit" class="button button-dark modal-submit">Add to goal <span aria-hidden="true">→</span></button></form></section></div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon">✦</span><span id="toastMessage">Nice work!</span></div>
+    <script src="app.js"></script>
+  </body>
+</html>
